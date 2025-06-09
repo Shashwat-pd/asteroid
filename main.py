@@ -10,8 +10,14 @@ def main():
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+	asteroids = pygame.sprite.Group()
+
+
 
     Player.containers = (updatable, drawable)
+	Asteroid.containers = (asteroids, updatable, drawable)
+	AsteroidField.containters = updatable
+	asteroid_field = AsteroidField()
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
@@ -31,7 +37,6 @@ def main():
 
         pygame.display.flip()
 
-        # limit the framerate to 60 FPS
         dt = clock.tick(60) / 1000
 
 
